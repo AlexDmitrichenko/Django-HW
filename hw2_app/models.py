@@ -48,9 +48,10 @@ class Product(models.Model):
 
 class Order(models.Model):
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    product = models.ManyToManyField(Product)
     order_sum = models.DecimalField(max_digits=10, decimal_places=2)
     order_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self) -> str:
         return f'{self.client.name} ordered {self.product} = {self.order_sum}, order date: {self.order_date}'
+

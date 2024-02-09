@@ -16,10 +16,10 @@ class Command(BaseCommand):
         client = Client.objects.get(id=client_id)
         product = Product.objects.get(id=product_id)
 
-        order = Order(
+        order = Order.objects.create(
             client=client,
-            product=product,
             order_sum=product.price * product.count
         )
+        order.product.set([product])
         order.save()
         self.stdout.write(self.style.SUCCESS(f'Added new order: {order}'))

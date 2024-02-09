@@ -1,7 +1,7 @@
-
-C:\Documents\IT\Pychart\Django\FrameworkDjango\FrameworkDjango\settings.py changed, reloading.
 Watching for file changes with StatReloader
 Index page requested.
 "GET / HTTP/1.1" 200 319
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2447
 About page requested.
 "GET /about_me/ HTTP/1.1" 200 304
