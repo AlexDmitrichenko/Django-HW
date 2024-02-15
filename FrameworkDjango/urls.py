@@ -1,5 +1,5 @@
 """
-URL configuration for FrameworkDjango project.
+URL configuration for myproject project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -19,5 +19,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('hw1_app.urls'))
+    path('', include('hw1_app.urls')),
+    path('hw2/', include('hw2_app.urls')),
 ]
