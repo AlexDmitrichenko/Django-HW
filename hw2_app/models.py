@@ -21,6 +21,9 @@ from django.db import models
 — связь с моделью «Товар», указывает на товары, входящие в заказ
 — общая сумма заказа
 — дата оформления заказа
+Создайте форму для редактирования товаров в базе данных.
+Измените модель продукта, добавьте поле для хранения фотографии продукта.
+Создайте форму, которая позволит сохранять фото.
 """
 
 
@@ -41,9 +44,11 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     count = models.IntegerField()
     add_date = models.DateTimeField(auto_now_add=True)
+    image_product = models.ImageField(upload_to="images/", default='No image')
 
     def __str__(self) -> str:
-        return f'{self.title}, price: {self.price}, count: {self.count}, add date: {self.add_date}'
+        return (f'{self.title}, price: {self.price}, count: {self.count}, add date: {self.add_date}, '
+                f'image: {self.image_product}')
 
 
 class Order(models.Model):
@@ -51,6 +56,7 @@ class Order(models.Model):
     product = models.ManyToManyField(Product)
     order_sum = models.DecimalField(max_digits=10, decimal_places=2)
     order_date = models.DateTimeField(auto_now_add=True)
+    is_paid = models.BooleanField(default=False)
 
     def __str__(self) -> str:
         return f'{self.client.name} ordered {self.product} = {self.order_sum}, order date: {self.order_date}'

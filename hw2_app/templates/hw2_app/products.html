@@ -2,12 +2,18 @@
 
 {% block title %} Продукт {% endblock %}
 
-
 {% block content %}
-    <h1>Наименование: {{ products.title }}</h1>
-    <p>количество: {{ products.count }}</p>
-    <p>стоимость: {{ products.price }}</p>
-    <p>описание: {{ products.description }}</p>
-    <p>дата создания: {{ products.add_date }}</p>
+<h1>Cписок продукции</h1> <br>
+    {% for product in products %}
+        <p>id: {{ product.id }}</p>
+        <p>наименование: {{ product.title }}</p>
+        <p>количество: {{ product.count }}</p>
+        <p>стоимость: {{ product.price }}</p>
+        <p>описание: {{ product.description }}</p>
+        <p>дата создания: {{ product.add_date }}</p>
+    <br>
+{%  endfor %}
+
 
 {% endblock %}
+
